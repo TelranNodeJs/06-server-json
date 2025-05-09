@@ -11,8 +11,7 @@ const server = http.createServer((req, res) => {
     if (req.method === "GET" && url.pathname === '/hello') {
         res.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});
         const name = url.searchParams.get("name");
-        res.write(`Hello, ${name}!`)
-        res.end();
+        res.end(`Hello, ${name}!`)
         return;
     }
 
@@ -25,12 +24,11 @@ const server = http.createServer((req, res) => {
             try {
                 const person = JSON.parse(body);
                 res.writeHead(200, {"Content-Type": "text/plain; charset=utf-8"});
-                res.write(`Hello, ${person.firstName} ${person.lastName}!`)
+                res.end(`Hello, ${person.firstName} ${person.lastName}!`)
             } catch (e) {
                 res.writeHead(400, {"Content-Type": "text/plain; charset=utf-8"});
-                res.write(`Invalid JSON Response: ${e}`);
+                res.end(`Invalid JSON Response: ${e}`);
             }
-            res.end();
         })
         return;
     }
@@ -48,12 +46,11 @@ const server = http.createServer((req, res) => {
                     fullName:`${person.firstName} ${person.lastName}`,
                     foods:['Candies','Cookies', 'Cakes']
                 }
-                res.write(JSON.stringify(personFeed));
+                res.end(JSON.stringify(personFeed));
             } catch (e) {
                 res.writeHead(400, {"Content-Type": "text/plain; charset=utf-8"});
-                res.write(`Invalid JSON Response: ${e}`);
+                res.end(`Invalid JSON Response: ${e}`);
             }
-            res.end();
         })
         return;
     }
