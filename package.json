@@ -1,0 +1,21 @@
+{
+  "name": "06-server-json",
+  "version": "0.0.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev-http": "nodemon http-json.js"
+  },
+  "keywords": [],
+  "author": "elena",
+  "license": "ISC",
+  "description": "server handle json",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
